@@ -1,9 +1,6 @@
-#include<iostream>
 #include<stdio.h>
 #include"List.h"
-int
-main ()
-{
+int main (){
   int command = 0;
   list *A = new list;
   list *B = new list;
@@ -27,9 +24,16 @@ main ()
   char lists;
   while (true)
     {
-      std::cout << "Choose list A or B for the next doing:";
-      std::cin >> lists;
-      //system("clear");
+      while (lists!='A' and lists!='B'){
+          std::cout << "Choose list A or B for the next doing:";
+          std::cin >> lists;
+          if(lists!='A' and lists!='B'){
+            std::cout<<"Wrong! Try again\n";
+          }
+          else{
+              break;
+          }
+      }
       std::cout << "1)Add element at the end of list\n";
       std::cout << "2)Add element at the begining of list\n";
       std::cout << "3)Delete last element of list\n";
@@ -162,7 +166,7 @@ main ()
 	      return 0;
 	    }
 	}
-
+    lists='0';
     }
 
 }

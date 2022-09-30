@@ -1,7 +1,5 @@
 #include "List.h"
-void
-list::make_new ()                           //Making new node
-{
+void list::make_new (){                           //Making new node
   if (head == nullptr)
     {
       head = new list;
@@ -25,22 +23,16 @@ list::make_new ()                           //Making new node
 
 }				
 
-void
-list::get_info ()                               //Output info from cell
-{
+void list::get_info (){                               //Output info from cell
   std::cout << current->data1->data << ' ';
 }				
 
-void
-list::put_info ()                               //Input info to cell
-{
+void list::put_info (){                               //Input info to cell
   std::cout << "Enter number:";
   std::cin >> current->data1->data;
 }				
 
-void
-list::add_to_end ()                             //Add element to end of the list
-{
+void list::add_to_end (){                             //Add element to end of the list
   current = last;
   current->next = new list;
   current->next->prev = current;
@@ -50,9 +42,7 @@ list::add_to_end ()                             //Add element to end of the list
   last = current;
 }
 
-void
-list::add_to_beg ()                             //Add element to beginig of the list
-{
+void list::add_to_beg (){                             //Add element to beginig of the list
   list *tmp = new list;
   tmp->data1 = new info;
   head->prev = tmp;
@@ -62,9 +52,7 @@ list::add_to_beg ()                             //Add element to beginig of the 
   put_info ();
 }
 
-void
-list::del_last ()                               //Delete last element
-{
+void list::del_last (){                               //Delete last element
   current = last;
   current->prev->next = nullptr;
   current->prev = nullptr;
@@ -72,9 +60,7 @@ list::del_last ()                               //Delete last element
   delete current;
 }
 
-void                                            //Delete the first element
-list::del_first ()
-{
+void list::del_first (){                                            //Delete the first element
   current = head;
   head = current->next;
   current->next = nullptr;
@@ -82,9 +68,7 @@ list::del_first ()
   delete current;
 }
 
-void                                            //Add element to index of the list
-list::add_to_index (int index)
-{
+void list::add_to_index (int index){                                            //Add element to index of the list
   current = head;
   for (int i = 0; i < index; i++)
     {
@@ -122,9 +106,7 @@ list::add_to_index (int index)
     }
 }
 
-void
-list::del_to_index (int index)
-{
+void list::del_to_index (int index){
   current = head;
   for (int i = 0; i < index; i++)
     {
@@ -159,9 +141,7 @@ list::del_to_index (int index)
     }
 }
 
-int
-list::get_len ()
-{
+int list::get_len (){
   current = head;
   int num = 0;
   while (current->next != nullptr)
@@ -173,9 +153,7 @@ list::get_len ()
   return num + 1;
 }
 
-void
-list::del_all ()
-{
+void list::del_all (){
   current = last;
   while (head != current)
     {
@@ -186,9 +164,7 @@ list::del_all ()
   head = nullptr;
 }
 
-void
-list::replace_to_index (int index)
-{
+void list::replace_to_index (int index){
   current = head;
   for (int i = 0; i < index; i++)
     {
@@ -205,9 +181,7 @@ list::replace_to_index (int index)
   put_info ();
 }
 
-bool
-list::check ()
-{
+bool list::check (){
   if (head == nullptr)
     {
       return true;
@@ -218,9 +192,7 @@ list::check ()
     }
 }				//check list in emptyness
 
-int
-compare_list (list * A, list * B)
-{
+int compare_list (list * A, list * B){
   A->current = A->head;
   B->current = B->head;
   list *tmp = new list;
@@ -272,9 +244,7 @@ compare_list (list * A, list * B)
   return 0;
 }
 
-void
-list::get_info_to_index (int index)
-{
+void list::get_info_to_index (int index){
   current = head;
   int i = 0;
   for (; i < index; i++)
@@ -295,9 +265,7 @@ list::get_info_to_index (int index)
     }
 }
 
-void
-list::view_all ()
-{
+void list::view_all (){
   current = head;
   while (current != last)
     {
@@ -306,4 +274,5 @@ list::view_all ()
     }
   current = last;
   get_info ();
+  std::cout<<std::endl;
 }
